@@ -1,5 +1,10 @@
 <?php
 function display_media_text_form($row,$createOrUpdate,$template){
+	if($createOrUpdate == "updatePage.php"){
+		$update = "update page";
+	}else{
+		$update = "create page";
+	}
 //need to send template
 //and wether this came from EDIT link or NEW
 ?>
@@ -18,7 +23,7 @@ subtitles:</br>
 <textarea name="cc" rows="10" cols="60"><?php echo $row['CC']; ?></textarea><br />
 <!--<input type="hidden" name="newold" value="<?php $newold ?>" />-->
 <input type="hidden" name="template" value="<?php echo $template ?>" />
-<input type="submit" value="Create page">
+<input type="submit" value="<?php echo $update ?>">
 </form>
 <?php
 }

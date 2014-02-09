@@ -8,38 +8,21 @@ include "db.php";
 
 $title = $_POST["title"];
 $content = $_POST["content"];
-$instruct = $_POST["instruct"];
 $link = $_POST["link"];
 $cc = $_POST["cc"];
-$offpiste = $_POST["offpiste"];
 
 $template = $_POST["template"];
-$newold = $_POST["newold"];
 
 //columns will change depending on TEMPLATE!
 
-if ($newold == "old"){
+if($template =='mediatext'){
 	$sql =
 	"UPDATE mediatext set 
 	TITLE = '$title',
 	CONTENT = '$content',
-	INTRUC = '$instruct', 
 	LINK = '$link',
-	CC = '$cc',
-	OFFPISTE = '$offpiste' where ID=1";
-}
-
-//goto last row in page_order as this be the latest ID
-if ($newold == "new"){
-	$sql =
-	"INSERT INTO mediatext VALUES 
-	
-	(TITLE = '$title',
-	CONTENT = '$content',
-	INTRUC = '$instruct', 
-	LINK = '$link',
-	CC = '$cc',
-	OFFPISTE = '$offpiste')";
+	CC = '$cc'
+	where ID = 1";
 }
 
 $ret = $db->exec($sql);

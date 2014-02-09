@@ -34,7 +34,8 @@ if ($data[1] == 'testScreen'){
 	video($row);
 }
 
-//GOT SCOPE PROBLEMS!!! Then just send in value as arguement
+//Got scope problems? Then just send in value as arguement
+
 //show mediatext template info
 function text($row){	
 	//global $row;

@@ -8,13 +8,11 @@ $template = $_POST['template'];
 
 if($_POST['new']){
 	//$new = $_POST['new'];
-	echo "it does = new!";
 	$createOrUpdate = "createPage.php";
 }
 if($_POST['old']){
 	//$old = $_POST['old'];
-	echo "it does = new!";
-	//$createOrUpdate = "updatePage.php";
+	$createOrUpdate = "updatePage.php";
 }
 
 //form test
@@ -31,13 +29,13 @@ switch ($template){
 		display_media_text_form($row,$createOrUpdate,$template);
 	break;
 		
-	case 'test':
-		$sql = "SELECT * from test";		
+	case 'testScreen':
+		$sql = "SELECT * from testScreen";		
 		$ret = $db->query($sql);
 		$row = $ret->fetchArray(SQLITE3_ASSOC);
 		//cho "Operation done successfully\n";
 		$db->close();
-		display_test_form($row);
+		display_test_form($row,$createOrUpdate,$template);
 	break;
 	//plus another 5 or so!
 }

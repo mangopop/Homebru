@@ -1,13 +1,9 @@
 <?php
 //This page takes values from the TEMPLATES that are used in FORM.php and updates/inserts record to the database
 //*TTD*
-//Should use INSERT if record doesn't exist
-//use the right table
+//need to make sure dont' input into DB if there is any error with anything!
 
 include "db.php";
-
-
-
 $title = $_POST["title"];
 $content = $_POST["content"];
 $link = $_POST["link"];
@@ -39,6 +35,7 @@ if($template =='mediatext'){
 	//insert into page_order
 	$sql1 = "INSERT INTO page_order (ID,page,title,type) VALUES
 	($LastRow[ID],$LastRow[page],'$title','$template')";
+	
 	$ret1 = $db->exec($sql1);
 	if(!$ret1){
 	   echo $db->lastErrorMsg();
@@ -49,6 +46,7 @@ if($template =='mediatext'){
 	//insert into mediatext
 	$sql2 = "INSERT INTO mediatext (ID,TITLE,CONTENT,LINK,CC) VALUES
 	($LastRow[ID],'$title','$content','$link','$cc')";
+	
 	$ret2 = $db->exec($sql2);
 	if(!$ret2){
 	   echo $db->lastErrorMsg();
