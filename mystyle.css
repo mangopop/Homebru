@@ -1,0 +1,36 @@
+body{
+	width:900px;
+	font-family:arial;
+}
+
+#col1{
+	margin-top:100px;
+	float:left;
+	width:100px;
+	height:100px;
+	margin-right:50px;
+}
+
+#col2{
+	float:left;
+	width:600px;
+}
+
+#col3{
+	margin-top:100px;
+	float:right;
+	width:100px;
+}
+
+.box{
+	border:2px solid #a1a1a1;
+	padding:10px 10px; 
+	background:#dddddd;
+	width:50px;
+	border-radius:25px;
+	-moz-border-radius:25px; /* Old Firefox */
+}
+
+.menu{
+
+}
