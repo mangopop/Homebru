@@ -17,6 +17,7 @@ if($_POST['old']){
 	//$createOrUpdate = "updatePage.php";
 }
 
+//form test
 
 
 //what template was chosen?
