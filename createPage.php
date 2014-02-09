@@ -32,27 +32,28 @@ if($template =='mediatext'){
 	$LastRow['page']++;
 	$LastRow['ID']++;
 
-	//insert into page_order
-	$sql1 = "INSERT INTO page_order (ID,page,title,type) VALUES
-	($LastRow[ID],$LastRow[page],'$title','$template')";
+
+	$sql = "INSERT INTO page_order (ID,page,title,type) VALUES
+	($LastRow[ID],$LastRow[page],'$title','$template');
 	
-	$ret1 = $db->exec($sql1);
-	if(!$ret1){
-	   echo $db->lastErrorMsg();
-	} else {
-	 echo $db->changes(), " Record updated successfully\n";      
-	}
-	
-	//insert into mediatext
-	$sql2 = "INSERT INTO mediatext (ID,TITLE,CONTENT,LINK,CC) VALUES
+	INSERT INTO mediatext (ID,TITLE,CONTENT,LINK,CC) VALUES
 	($LastRow[ID],'$title','$content','$link','$cc')";
 	
-	$ret2 = $db->exec($sql2);
-	if(!$ret2){
+	$ret = $db->exec($sql);
+	if(!$ret){
 	   echo $db->lastErrorMsg();
 	} else {
 	 echo $db->changes(), " Record updated successfully\n";      
 	}
+	
+	
+	
+	// $ret2 = $db->exec($sql2);
+	// 	if(!$ret2){
+	// 	   echo $db->lastErrorMsg();
+	// 	} else {
+	// 	 echo $db->changes(), " Record updated successfully\n";      
+	// 	}
 }
 
 $db->close();

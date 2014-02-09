@@ -5,8 +5,7 @@ function display_media_text_form($row,$createOrUpdate,$template){
 	}else{
 		$update = "create page";
 	}
-//need to send template
-//and wether this came from EDIT link or NEW
+//DO NOT NEED TO FILL IN FORM IF IT'S NEW!
 ?>
 <p>THIS IS A MEDIA TEXT FORM</p>
 
