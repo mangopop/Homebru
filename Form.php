@@ -6,6 +6,8 @@ include "FORMS/test-form.php";
 
 $template = $_POST['template'];
 
+//is it worth moving this into seperate pages? 
+
 if($_POST['new']){
 	//$new = $_POST['new'];
 	echo "I'm a create new";
@@ -28,6 +30,8 @@ switch ($template){
 		$row = $ret->fetchArray(SQLITE3_ASSOC);
 		//echo "Operation done successfully\n";
 		$db->close();
+		
+		//not sure what this if check was for?
 		if($_POST['edit']){
 			display_media_text_form($row,$createOrUpdate,$template);
 		}else{

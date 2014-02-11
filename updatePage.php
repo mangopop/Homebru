@@ -1,8 +1,7 @@
 <?php
 //This page takes values from the TEMPLATES that are used in FORM.php and updates/inserts record to the database
-//*TTD*
-//Should use INSERT if record doesn't exist
-//use the right table
+
+
 
 include "db.php";
 
@@ -19,6 +18,9 @@ $cc = SQLite3::escapeString($cc);
 $template = $_POST["template"];
 
 //columns will change depending on TEMPLATE!
+
+
+//////AAHHHHHHHHH ID is wrong!!!!!! ///////////
 
 if($template =='mediatext'){
 	$sql =

@@ -40,6 +40,7 @@ function viewCourse(){
 	<?php
 	
 //-----TABLE OF CURRENT SCREENS--------//
+//Can I not just use a session here?
 
 	$sql = "SELECT * from page_order";
 	$ret = $db->query($sql);
@@ -52,9 +53,16 @@ function viewCourse(){
 		?>
 		<td>
 		<form action='Form.php' method='POST'>
-		<input type='hidden' name="template" value='<?php echo $row["type"] ?>' />
-		<input type="hidden" name="edit" value="edit" />
-		<input type='submit' value='edit'>
+			<input type='hidden' name="template" value='<?php echo $row["type"] ?>' />
+			<input type="hidden" name="edit" value="edit" />
+			<input type='submit' value='edit'>
+		</form>
+		</td>
+		<td>
+		<form action='deletePage.php' method='POST'>
+			<input type='hidden' name="id" value='<?php echo $row["id"] ?>' />
+			<input type='hidden' name="template" value='<?php echo $row["type"] ?>' />
+			<input type='submit' value='delete'>
 		</form>
 		</td>
 		</tr>

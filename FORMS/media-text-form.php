@@ -2,6 +2,7 @@
 function display_media_text_form($row,$createOrUpdate,$template){
 	if($createOrUpdate == "updatePage.php"){
 		$button = "update page";
+		$new = FALSE;
 	}else{
 		$new = TRUE;
 		$button = "create page";		
