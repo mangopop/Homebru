@@ -49,7 +49,7 @@ if($template =='mediatext'){
 	if(!$ret){
 	   echo $db->lastErrorMsg();
 	} else {
-	 echo $db->changes(), " Record updated successfully\n";      
+	 echo $db->changes(), " Record created successfully\n";      
 	}
 	
 	

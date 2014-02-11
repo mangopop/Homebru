@@ -17,9 +17,6 @@ $template = $_POST["template"];
 
 //columns will change depending on TEMPLATE!
 
-
-//////AAHHHHHHHHH ID is wrong!!!!!! ///////////
-
 if($template =='mediatext'){
 	$sql =
 	"UPDATE mediatext set 

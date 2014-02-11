@@ -44,7 +44,7 @@ function viewCourse(){
 
 	$sql = "SELECT * from page_order";
 	$ret = $db->query($sql);
-	$i = 0;
+	//$i = 0;
 	while($row = $ret->fetchArray(SQLITE3_ASSOC)){
 		echo "<td>".$row['page']."</td>";
 		echo "<td>".$row['title']."</td>";
@@ -69,7 +69,7 @@ function viewCourse(){
 		</tr>
 		<?php
 		
-		$i++;
+		//$i++;
 	}
 	
 	
