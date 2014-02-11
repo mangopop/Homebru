@@ -53,7 +53,7 @@ function viewCourse(){
 		<td>
 		<form action='Form.php' method='POST'>
 		<input type='hidden' name="template" value='<?php echo $row["type"] ?>' />
-		<input type="hidden" name="old" value="old" />
+		<input type="hidden" name="edit" value="edit" />
 		<input type='submit' value='edit'>
 		</form>
 		</td>
