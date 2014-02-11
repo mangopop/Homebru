@@ -8,10 +8,12 @@ $template = $_POST['template'];
 
 if($_POST['new']){
 	//$new = $_POST['new'];
+	echo "I'm a create new";
 	$createOrUpdate = "createPage.php";
 }
-if($_POST['old']){
+if($_POST['edit']){
 	//$old = $_POST['old'];
+	echo "I'm an edit";
 	$createOrUpdate = "updatePage.php";
 }
 
@@ -26,7 +28,11 @@ switch ($template){
 		$row = $ret->fetchArray(SQLITE3_ASSOC);
 		//echo "Operation done successfully\n";
 		$db->close();
-		display_media_text_form($row,$createOrUpdate,$template);
+		if($_POST['edit']){
+			display_media_text_form($row,$createOrUpdate,$template);
+		}else{
+			display_media_text_form($row,$createOrUpdate,$template);
+		}
 	break;
 		
 	case 'testScreen':

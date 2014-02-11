@@ -10,6 +10,11 @@ $title = $_POST["title"];
 $content = $_POST["content"];
 $link = $_POST["link"];
 $cc = $_POST["cc"];
+$title = SQLite3::escapeString($title);
+$content = SQLite3::escapeString($content);
+$link = SQLite3::escapeString($link);
+$cc = SQLite3::escapeString($cc);
+
 
 $template = $_POST["template"];
 
@@ -18,11 +23,11 @@ $template = $_POST["template"];
 if($template =='mediatext'){
 	$sql =
 	"UPDATE mediatext set 
-	TITLE = '$title',
-	CONTENT = '$content',
-	LINK = '$link',
-	CC = '$cc'
-	where ID = 1";
+	title = '$title',
+	content = '$content',
+	link = '$link',
+	cc = '$cc'
+	where id = 1";
 }
 
 $ret = $db->exec($sql);

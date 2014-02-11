@@ -1,0 +1,22 @@
+CREATE TABLE mediatext(
+id INTEGER,
+title TEXT,
+content TEXT,
+link TEXT,
+cc TEXT,
+offpiste TEXT,
+FOREIGN KEY(id) REFERENCES page_order(id)
+);
+
+CREATE TABLE page_order(
+id INTEGER PRIMARY KEY,
+page INTEGER,
+title TEXT,
+type TEXT);
+
+CREATE TABLE testscreen(
+id INTEGER,
+title TEXT,
+content TEXT,
+FOREIGN KEY(id) REFERENCES page_order(id)
+);

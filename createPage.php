@@ -8,6 +8,12 @@ $title = $_POST["title"];
 $content = $_POST["content"];
 $link = $_POST["link"];
 $cc = $_POST["cc"];
+$title = SQLite3::escapeString($title);
+$content = SQLite3::escapeString($content);
+$link = SQLite3::escapeString($link);
+$cc = SQLite3::escapeString($cc);
+
+//stripslashes();
 
 $template = $_POST["template"];
 // $newold = $_POST["newold"];
@@ -30,14 +36,14 @@ if($template =='mediatext'){
 	//find out the very last page number and increment it
 	//do the same of the ID but this will be something from a ragged sequence i.e. 2,3,5,8 (if delete)
 	$LastRow['page']++;
-	$LastRow['ID']++;
+	$LastRow['id']++;
 
 
 	$sql = "INSERT INTO page_order (ID,page,title,type) VALUES
-	($LastRow[ID],$LastRow[page],'$title','$template');
+	($LastRow[id],$LastRow[page],'$title','$template');
 	
-	INSERT INTO mediatext (ID,TITLE,CONTENT,LINK,CC) VALUES
-	($LastRow[ID],'$title','$content','$link','$cc')";
+	INSERT INTO mediatext (id,title,content,link,cc) VALUES
+	($LastRow[id],'$title','$content','$link','$cc')";
 	
 	$ret = $db->exec($sql);
 	if(!$ret){

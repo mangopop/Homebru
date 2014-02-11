@@ -7,7 +7,6 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
-company
 test.db
 text files/*
 videos/*
