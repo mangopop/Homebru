@@ -41,8 +41,8 @@ function text($row){
 	//global $row;
 ?>
 	<div id="col2">
-		<P>content should appear under here</p>
-		<P><?php echo $row['CONTENT']; ?></p>
+		<P>content = <?php echo $row['content']; ?></p>
+		<P>content = <?php echo $row['content']; ?></p>
 	</div>
 	<div id="col3">
 		<a href="#" class="box">next</a>

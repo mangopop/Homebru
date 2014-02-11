@@ -4,6 +4,7 @@ include "db.php";
 include "FORMS/media-text-form.php";
 include "FORMS/test-form.php";
 
+$id = $_POST['id'];
 $template = $_POST['template'];
 
 //is it worth moving this into seperate pages? 
@@ -30,13 +31,7 @@ switch ($template){
 		$row = $ret->fetchArray(SQLITE3_ASSOC);
 		//echo "Operation done successfully\n";
 		$db->close();
-		
-		//not sure what this if check was for?
-		if($_POST['edit']){
-			display_media_text_form($row,$createOrUpdate,$template);
-		}else{
-			display_media_text_form($row,$createOrUpdate,$template);
-		}
+		display_media_text_form($id,$row,$createOrUpdate,$template);
 	break;
 		
 	case 'testScreen':

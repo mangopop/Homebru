@@ -15,4 +15,6 @@ if(!$err){
 } else {
  echo $db->changes(), " Record updated successfully\n";      
 }
+
 ?>
+<a href="choose.php">home screen</a>

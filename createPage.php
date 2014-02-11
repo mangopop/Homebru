@@ -67,4 +67,4 @@ $db->close();
 ?>
 </br>
 <!--echo "<td><a href='pageview.php?a[]=".$row['screen']."&a[]=".$row['type']."'>view</a></td>";-->
-<a href="#">view file</a>
+<a href="choose.php">home screen</a>

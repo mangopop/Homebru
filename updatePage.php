@@ -1,8 +1,6 @@
 <?php
-//This page takes values from the TEMPLATES that are used in FORM.php and updates/inserts record to the database
-
-
-
+//FROM Form.php/template
+ 
 include "db.php";
 
 $title = $_POST["title"];
@@ -14,7 +12,7 @@ $content = SQLite3::escapeString($content);
 $link = SQLite3::escapeString($link);
 $cc = SQLite3::escapeString($cc);
 
-
+$id = $_POST["id"];
 $template = $_POST["template"];
 
 //columns will change depending on TEMPLATE!
@@ -29,7 +27,11 @@ if($template =='mediatext'){
 	content = '$content',
 	link = '$link',
 	cc = '$cc'
-	where id = 1";
+	where id = '$id';
+	
+	UPDATE page_order set 
+	title = '$title'
+	where id = '$id'";
 }
 
 $ret = $db->exec($sql);
@@ -43,4 +45,4 @@ $db->close();
 ?>
 </br>
 <!--echo "<td><a href='pageview.php?a[]=".$row['screen']."&a[]=".$row['type']."'>view</a></td>";-->
-<a href="#">view file</a>
+<a href="choose.php">home screen</a>

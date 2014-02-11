@@ -1,5 +1,5 @@
 <?php
-function display_media_text_form($row,$createOrUpdate,$template){
+function display_media_text_form($id,$row,$createOrUpdate,$template){
 	if($createOrUpdate == "updatePage.php"){
 		$button = "update page";
 		$new = FALSE;
@@ -22,6 +22,7 @@ Link:<br />
 <textarea name="link" rows="1" cols="20"><?php if(!$new) echo $row['link']; ?></textarea><br />
 subtitles:</br>
 <textarea name="cc" rows="10" cols="60"><?php if(!$new) echo $row['cc']; ?></textarea><br />
+<input type="hidden" name="id" value="<?php echo $id ?>" />
 <input type="hidden" name="template" value="<?php echo $template ?>" />
 <input type="submit" value="<?php echo $button ?>">
 </form>
