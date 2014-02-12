@@ -20,7 +20,7 @@ function viewCourse(){
 <select name="template">
 	<option selected="selected" value="null" disabled>choose a template</option>
 	<option value="mediatext">Media text</option>
-	<option value="testScreen">testScreen</option>
+	<option value="testscreen">testScreen</option>
 	<option value="sorting-list">Sorting list</option>
 	<option value="MCQ">MCQ</option>
 </select>

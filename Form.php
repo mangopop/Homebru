@@ -1,20 +1,6 @@
 <?php
 //Depending on what slide it chosen, will load DB TABLE(important differentiation) and populate form, must load correct form though!
-//include "db.php";
-class MyDB extends SQLite3
-{
-	function __construct()
-	{
-		$this->open('courses.db');
-	}
-}
-
-$db = new MyDB();
-if(!$db){
-	echo $db->lastErrorMsg();
-} else {
-	echo "Opened database from db.php successfully.\n";
-}
+include "db.php";
 
 include "FORMS/media-text-form.php";
 include "FORMS/test-form.php";
@@ -50,7 +36,7 @@ switch ($template){
 		getDataForForm($db,$id,$template,$row,$createOrUpdate);
 	break;
 		
-	case 'testScreen':
+	case 'testscreen':
 		getDataForForm($db,$id,$template,$row,$createOrUpdate);
 	break;
 	//plus another 5 or so!
