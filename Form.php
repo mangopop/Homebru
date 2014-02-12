@@ -1,6 +1,21 @@
 <?php
 //Depending on what slide it chosen, will load DB TABLE(important differentiation) and populate form, must load correct form though!
-include "db.php";
+//include "db.php";
+class MyDB extends SQLite3
+{
+	function __construct()
+	{
+		$this->open('courses.db');
+	}
+}
+
+$db = new MyDB();
+if(!$db){
+	echo $db->lastErrorMsg();
+} else {
+	echo "Opened database from db.php successfully.\n";
+}
+
 include "FORMS/media-text-form.php";
 include "FORMS/test-form.php";
 
@@ -20,27 +35,23 @@ if($_POST['edit']){
 	$createOrUpdate = "updatePage.php";
 }
 
-//form test
 
+function getDataForForm($db,$id,$template,$row,$createOrUpdate){
+	$sql = "SELECT * FROM $template WHERE id = '$id'";		
+	$ret = $db->query($sql);
+	$row = $ret->fetchArray(SQLITE3_ASSOC);
+	//echo "Operation done successfully\n";
+	$db->close();
+	display_media_text_form($id,$row,$createOrUpdate,$template);
+}
 
-//what template was chosen?
 switch ($template){
-	case 'mediatext':		
-		$sql = "SELECT * from mediatext";		
-		$ret = $db->query($sql);
-		$row = $ret->fetchArray(SQLITE3_ASSOC);
-		//echo "Operation done successfully\n";
-		$db->close();
-		display_media_text_form($id,$row,$createOrUpdate,$template);
+	case 'mediatext':
+		getDataForForm($db,$id,$template,$row,$createOrUpdate);
 	break;
 		
 	case 'testScreen':
-		$sql = "SELECT * from testScreen";		
-		$ret = $db->query($sql);
-		$row = $ret->fetchArray(SQLITE3_ASSOC);
-		//cho "Operation done successfully\n";
-		$db->close();
-		display_test_form($row,$createOrUpdate,$template);
+		getDataForForm($db,$id,$template,$row,$createOrUpdate);
 	break;
 	//plus another 5 or so!
 }

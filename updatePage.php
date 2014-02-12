@@ -3,6 +3,7 @@
  
 include "db.php";
 
+
 $title = $_POST["title"];
 $content = $_POST["content"];
 $link = $_POST["link"];
