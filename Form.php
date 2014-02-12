@@ -5,7 +5,7 @@ include "db.php";
 include "FORMS/media-text-form.php";
 include "FORMS/test-form.php";
 
-$id = $_POST['id'];
+$page = $_POST['page'];
 $template = $_POST['template'];
 
 //is it worth moving this into seperate pages? 
@@ -22,25 +22,25 @@ if($_POST['edit']){
 }
 
 
-function getDataForForm($db,$id,$template,$row,$createOrUpdate){
-	$sql = "SELECT * FROM $template WHERE id = '$id'";		
+//function getDataForForm($db,$id,$template,$row,$createOrUpdate){
+	$sql = "SELECT * FROM allTemplates WHERE page = '$page'";		
 	$ret = $db->query($sql);
 	$row = $ret->fetchArray(SQLITE3_ASSOC);
 	//echo "Operation done successfully\n";
 	$db->close();
-	display_media_text_form($id,$row,$createOrUpdate,$template);
-}
+	display_media_text_form($page,$row,$createOrUpdate,$template);
+//}
 
-switch ($template){
-	case 'mediatext':
-		getDataForForm($db,$id,$template,$row,$createOrUpdate);
-	break;
-		
-	case 'testscreen':
-		getDataForForm($db,$id,$template,$row,$createOrUpdate);
-	break;
-	//plus another 5 or so!
-}
+// switch ($template){
+// 	case 'mediatext':
+// 		getDataForForm($db,$id,$template,$row,$createOrUpdate);
+// 	break;
+// 		
+// 	case 'testscreen':
+// 		getDataForForm($db,$id,$template,$row,$createOrUpdate);
+// 	break;
+// 	//plus another 5 or so!
+// }
 
 
 ?>

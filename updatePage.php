@@ -13,23 +13,20 @@ $content = SQLite3::escapeString($content);
 $link = SQLite3::escapeString($link);
 $cc = SQLite3::escapeString($cc);
 
-$id = $_POST["id"];
+$page = $_POST["page"];
 $template = $_POST["template"];
 
 //columns will change depending on TEMPLATE!
 
 if($template =='mediatext'){
 	$sql =
-	"UPDATE mediatext set 
+	"UPDATE allTemplates set 
 	title = '$title',
 	content = '$content',
 	link = '$link',
 	cc = '$cc'
-	where id = '$id';
-	
-	UPDATE page_order set 
-	title = '$title'
-	where id = '$id'";
+	where page = '$page'";
+
 }
 
 $ret = $db->exec($sql);

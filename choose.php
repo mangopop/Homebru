@@ -42,7 +42,7 @@ function viewCourse(){
 //-----TABLE OF CURRENT SCREENS--------//
 //Can I not just use a session here?
 
-	$sql = "SELECT * from page_order";
+	$sql = "SELECT * from allTemplates";
 	$ret = $db->query($sql);
 	//$i = 0;
 	while($row = $ret->fetchArray(SQLITE3_ASSOC)){
@@ -53,7 +53,7 @@ function viewCourse(){
 		?>
 		<td>
 		<form action='Form.php' method='POST'>
-			<input type='hidden' name="id" value='<?php echo $row["id"] ?>' />
+			<input type='hidden' name="page" value='<?php echo $row["page"] ?>' />
 			<input type='hidden' name="template" value='<?php echo $row["type"] ?>' />
 			<input type="hidden" name="edit" value="edit" />
 			<input type='submit' value='edit'>

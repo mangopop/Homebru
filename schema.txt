@@ -20,3 +20,13 @@ title TEXT,
 content TEXT,
 FOREIGN KEY(id) REFERENCES page_order(id)
 );
+
+CREATE TABLE allTemplates(
+page INTEGER,
+type TEXT,
+title TEXT,
+content TEXT,
+link TEXT,
+cc TEXT,
+offpiste TEXT
+);

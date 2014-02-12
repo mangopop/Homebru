@@ -15,39 +15,32 @@ $cc = SQLite3::escapeString($cc);
 
 $template = $_POST["template"];
 
-//columns will change depending on TEMPLATE!
-
-//find last ID and PAGE NUMBER from page_order so we can add it to both tables
-$rows = $db->query("SELECT COUNT(*) as count FROM page_order ");
+//find last PAGE NUMBER
+$rows = $db->query("SELECT COUNT(*) as count FROM allTemplates ");
 $row = $rows->fetchArray();
 $numRows = $row['count'];
 $numRows = $numRows-1;	
 
-//get ID and PAGE from the page_order table store it in array
-$IDPage = $db->query("SELECT id,page FROM page_order LIMIT $numRows,1");
+//run PAGE select statement
+$IDPage = $db->query("SELECT page FROM allTemplates LIMIT $numRows,1");
+//add final result into array (prob can be just one query now not ID and PAGE)
 $LastRow = $IDPage->fetchArray(SQLITE3_ASSOC);
 
-//$pageID = $db->querySingle("SELECT ID FROM page_order LIMIT $numRows,1");
-//find out the very last page number and increment it
-//do the same of the ID but this will be something from a ragged sequence i.e. 2,3,5,8 (if delete)
+//$pageID = $db->querySingle("SELECT ID FROM page_order LIMIT $numRows,1
+
+//increment our last page entry
 $LastRow['page']++;
-$LastRow['id']++;
 
 switch($template){
 	case 'mediatext':
-		$sql = "INSERT INTO page_order (id,page,title,type) VALUES
-		($LastRow[id],$LastRow[page],'$title','$template');
-
-		INSERT INTO $template (id,title,content,link,cc) VALUES
-		($LastRow[id],'$title','$content','$link','$cc')";
+		$sql = "INSERT INTO allTemplates (page,title,content,link,cc) VALUES
+		($LastRow[page],'$title','$content','$link','$cc')";
 	break;
 	
+	//different insert statement
 	case 'testscreen':
-		$sql = "INSERT INTO page_order (id,page,title,type) VALUES
-		($LastRow[id],$LastRow[page],'$title','$template');
-
-		INSERT INTO $template (id,title,content) VALUES
-		($LastRow[id],'$title','$content')";
+		$sql = "INSERT INTO allTemplates (page,title,content,link,cc) VALUES
+		($LastRow[page],'$title','$content','$link','$cc')";
 	break;
 }
 

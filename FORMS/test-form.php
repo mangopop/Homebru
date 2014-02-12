@@ -1,6 +1,6 @@
 <?php
 
-function display_test_form($id,$row,$createOrUpdate,$template){
+function display_test_form($page,$row,$createOrUpdate,$template){
 if($createOrUpdate == "updatePage.php"){
 	$update = "update page";
 }else{
@@ -14,7 +14,7 @@ title:<br />
 <textarea name="title" rows="1" cols="40"><?php if(!$new) echo $row['title']; ?></textarea><br />
 content:<br/>
 <textarea name="title" rows="1" cols="40"><?php if(!$new) echo $row['content']; ?></textarea><br />
-<input type="hidden" name="id" value="<?php echo $id ?>" />
+<input type="hidden" name="id" value="<?php echo $page ?>" />
 <input type="hidden" name="template" value="<?php echo $template ?>" />
 <input type="submit" value="<?php echo $update ?>">
 </form>
