@@ -2,16 +2,16 @@
 //to display template I need to know...TEMPLATE, SCREEN.
 //reference page order with ID and then check this ID in the TABLE(mediatext)
 include "db.php";
-//screen [0] type [1]
+//page [0] type [1]
 $data = $_GET['a'];
 //print_r($data);
 
-$sql = "SELECT ID from page_order WHERE	page ='$data[0]'";
+$sql = "SELECT page from allTemplates WHERE	page ='$data[0]'";
 $result = $db->querySingle($sql);
 //echo $result;
 //echo "Operation done successfully\n";
 
-$sql = "SELECT * from '$data[1]' WHERE ID ='$result'";
+$sql = "SELECT * from allTemplates WHERE page ='$result'";
 $result2 = $db->query($sql);
 $row = $result2->fetchArray(SQLITE3_ASSOC);
 //print_r($row);
