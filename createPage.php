@@ -39,8 +39,8 @@ switch($template){
 	
 	//different insert statement
 	case 'testscreen':
-		$sql = "INSERT INTO allTemplates (page,title,content,link,cc) VALUES
-		($LastRow[page],'$title','$content','$link','$cc')";
+		$sql = "INSERT INTO allTemplates (page,title,content,link,cc, type) VALUES
+		($LastRow[page],'$title','$content','$link','$cc','$template')";
 	break;
 }
 

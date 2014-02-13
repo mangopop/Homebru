@@ -61,7 +61,7 @@ function viewCourse(){
 		</td>
 		<td>
 		<form action='deletePage.php' method='POST'>
-			<input type='hidden' name="id" value='<?php echo $row["id"] ?>' />
+			<input type='hidden' name="page" value='<?php echo $row["page"] ?>' />
 			<input type='hidden' name="template" value='<?php echo $row["type"] ?>' />
 			<input type='submit' value='delete'>
 		</form>
@@ -76,8 +76,3 @@ function viewCourse(){
 	$db->close();
 	?>
 </table>
-
-<form action="Form.php" method="POST">
-<input type="hidden" name="form_type" value="<?php echo $type ?>" />
-<input type="submit" value="edit">
-</form>

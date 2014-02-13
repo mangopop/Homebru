@@ -30,7 +30,7 @@ $db->close();
 if ($data[1] == 'mediatext'){
 	text($row);
 }
-if ($data[1] == 'testScreen'){
+if ($data[1] == 'testscreen'){
 	video($row);
 }
 

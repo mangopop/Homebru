@@ -4,10 +4,8 @@ include 'db.php';
 $page = $_POST['page'];
 $template = $_POST['template'];
 
-$sql = "DELETE FROM allTemplates WHERE page = '$page'";
-		
+$sql = "DELETE FROM allTemplates WHERE page = '$page'";		
 $report = $db->exec($sql);
-
 if(!$report){
    echo $db->lastErrorMsg();
 } else {
@@ -23,8 +21,8 @@ $i = 0;
 while ($row = $result->fetchArray(SQLITE3_ASSOC)){
 		$pagenumbers = $db->exec("UPDATE allTemplates SET page ='$numRows' WHERE page='$row[page]' ");
 		echo "<br/>";
-		echo "result = ".$numRows;
-		echo " id = ".$row['page'];		
+		echo " page = ".$row['page'];
+		echo " is now = ".$numRows;
 		$numRows++;
 		$i++;
 }
